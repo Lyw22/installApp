@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>手机品牌判断</title>
+<script>
+    function detectMobileBrand() {
+        var userAgent = navigator.userAgent.toLowerCase();
+        var brands = ["xiaomi", "huawei", "oppo", "vivo"];
+
+        for (var i = 0; i < brands.length; i++) {
+            if (userAgent.indexOf(brands[i]) !== -1) {
+                return brands[i];
+            }
+        }
+
+        return "未知手机品牌";
+    }
+
+    function openAppStore(brand) {
+        var appPackageName = "com.wimetro.iafc"; // 替换为实际应用的包名
+
+        switch (brand) {
+            case 'xiaomi':
+                window.location.href = "market://details?id=" + appPackageName;
+                break;
+            case 'huawei':
+                window.location.href = "appmarket://details?id=" + appPackageName;
+                break;
+            case 'oppo':
+                window.location.href = "oppomarket://details?id=" + appPackageName;
+                break;
+            case 'vivo':
+                window.location.href = "vivomarket://details?id=" + appPackageName;
+                break;
+            default:
+                alert("未知品牌");
+        }
+    }
+
+    window.onload = function() {
+        var brand = detectMobileBrand();
+        var message = "您正在使用的是 " + brand + " 手机。";
+        document.getElementById("brandMessage").textContent = message;
+    };
+
+
+</script>
+</head>
+<body>
+    <h1>手机品牌判断页面</h1>
+    <p id="brandMessage"></p>
+    <div onclick="openAppStore('xiaomi')">跳转到应用商店</div>
+</body>
+</html>
