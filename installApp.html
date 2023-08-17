@@ -34,8 +34,8 @@
             case 'vivo':
                 window.location.href = "vivomarket://details?id=" + appPackageName;
                 break;
-            default:
-                alert("未知品牌");
+            default://360下载
+                window.location.href = "http://app.so.com/detail/index?pname=com.wimetro.iafc&id=4024345";
         }
     }
 
@@ -51,6 +51,10 @@
 <body>
     <h1>手机品牌判断页面</h1>
     <p id="brandMessage"></p>
-    <div onclick="openAppStore('xiaomi')">跳转到应用商店</div>
+    <div onclick="openAppStore('xiaomi')">跳转到小米应用商店</div>
+    <div onclick="openAppStore('huawei')">跳转到华为应用商店</div>
+    <div onclick="openAppStore('oppo')">跳转到oppo应用商店</div>
+    <div onclick="openAppStore('vivo')">跳转到vivo应用商店</div>
+    <div onclick="openAppStore('360')">跳转到360应用商店</div>
 </body>
 </html>
