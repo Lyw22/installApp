@@ -20,23 +20,28 @@
 
     function openAppStore(brand) {
         var appPackageName = "com.wimetro.iafc"; // 替换为实际应用的包名
-
-        switch (brand) {
-            case 'xiaomi':
-                window.location.href = "market://details?id=" + appPackageName;
-                break;
-            case 'huawei':
-                window.location.href = "appmarket://details?id=" + appPackageName;
-                break;
-            case 'oppo':
-                window.location.href = "oppomarket://details?id=" + appPackageName;
-                break;
-            case 'vivo':
-                window.location.href = "vivomarket://details?id=" + appPackageName;
-                break;
-            default://360下载
-                window.location.href = "http://app.so.com/detail/index?pname=com.wimetro.iafc&id=4024345";
+        try {
+            switch (brand) {
+                case 'xiaomi':
+                    window.location.href = "market://details?id=" + appPackageName;
+                    break;
+                case 'huawei':
+                    window.location.href = "appmarket://details?id=" + appPackageName;
+                    break;
+                case 'oppo':
+                    window.location.href = "oppomarket://details?id=" + appPackageName;
+                    break;
+                case 'vivo':
+                    window.location.href = "vivomarket://details?id=" + appPackageName;
+                    break;
+                default://360下载
+                    window.location.href = "http://app.so.com/detail/index?pname=com.wimetro.iafc&id=4024345";
+                    break
+            }
+        }catch (e){
+            window.location.href = "http://app.so.com/detail/index?pname=com.wimetro.iafc&id=4024345";
         }
+
     }
 
     window.onload = function() {
